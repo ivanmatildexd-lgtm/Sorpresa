@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Amor ❤️</title>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#ffd1dc,#ffe6f0);
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* Corazones */
+.heart{
+  position:fixed;
+  color:#ff4d6d;
+  font-size:20px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float{
+  0%{ transform:translateY(100vh); opacity:1;}
+  100%{ transform:translateY(-10vh); opacity:0;}
+}
+
+.card{
+  background:#eafff3;
+  padding:25px;
+  border-radius:20px;
+  width:320px;
+  text-align:center;
+  box-shadow:0 10px 20px rgba(0,0,0,.2);
+  z-index:2;
+}
+
+h2{ color:#d6336c; }
+
+input{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+
+button{
+  background:#d6336c;
+  color:white;
+  border:none;
+  padding:10px;
+  width:100%;
+  border-radius:15px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+button:hover{ background:#b02556; }
+
+img{
+  width:90%;
+  border-radius:15px;
+  margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="formulario">
+  <h2>Bienvenida 💖</h2>
+
+  <input id="nombre" placeholder="Escribe tu nombre">
+  <input id="lugar" placeholder="¿Dónde nos vimos por primera vez?">
+  <input id="fecha" placeholder="¿Qué número es nuestra fecha?">
+  <input id="grupo" placeholder="Escribe tu grupo de música favorito">
+
+  <button onclick="validar()">Entrar</button>
+</div>
+
+<script>
+// Corazones
+setInterval(()=>{
+  let heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤️";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(15+Math.random()*20)+"px";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+},300);
+
+function validar(){
+  let nombre=document.getElementById("nombre").value.toLowerCase();
+  let lugar=document.getElementById("lugar").value.toLowerCase();
+  let fecha=document.getElementById("fecha").value;
+  let grupo=document.getElementById("grupo").value.toLowerCase();
+
+  if(nombre=="maria" && lugar=="escuela" && fecha=="22" && grupo=="bts"){
+    document.body.innerHTML=`
+      <audio autoplay loop>
+        <source src="Mecano.mp3" type="audio/mpeg">
+      </audio>
+
+      <div class="card">
+        <h1 style="color:#d6336c;">
+          Muchas gracias amor por 1 año y 8 meses juntos 💕
+        </h1>
+
+        <p>
+          Del 1 al 10 te amo un 90.  
+          <br>Te amo amor 💖
+        </p>
+
+        <img src="foto1.jpg.jpeg">
+        <img src="foto2.jpg.jpeg">
+
+        <button onclick="sorpresa()">Ver otra sorpresa 🎁</button>
+      </div>
+    `;
+  }else{
+    alert("Ups 😅 intenta otra vez");
+  }
+}
+
+function sorpresa(){
+  document.body.innerHTML=`
+    <audio autoplay loop>
+      <source src="Mecano.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="card">
+      <h1 style="color:#d6336c;">Esto apenas comienza… 💖</h1>
+
+      <p>
+        Juntos construiremos más meses de los que ya llevamos,  
+        y cada día me seguiré enamorando más de ti.  
+        <br><br>
+        Eres una princesa increíble, amor 👑❤️
+      </p>
+    </div>
+  `;
+}
+</script>
+
+</body>
+</html>
